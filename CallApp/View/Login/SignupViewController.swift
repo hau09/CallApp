@@ -61,7 +61,10 @@ class SignupViewController: UIViewController {
                     return
                 }
                 let user = User(fullname: firstname + " " + lastname, email: email, uid: result!.user.uid)
-                FirestoreService.shared.createUser(user: user, inColecttion: .users)
+                FirestoreService.shared.createUser(user: user, inColecttion: .users) { (error) in
+                    guard let error = error else { return }
+                    AlertServices.showAlert(self, title: "Error", message: error.localizedDescription)
+                }
                 DispatchQueue.main.async {
                     self.dismiss(animated: true)
                     activityIndicatorView.stopAnimating()

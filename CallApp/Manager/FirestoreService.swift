@@ -9,15 +9,16 @@ import Foundation
 import Firebase
 
 class FirestoreService {
-    public enum FetchResult<T: User> {
+    public enum FetchResult<T> {
         case success(response: T)
         case error(error: Error)
     }
-    public enum FetchResults<T: User> {
+    public enum FetchResults<T> {
         case success(response: [T])
         case error(error: Error)
     }
-    public enum FetchResultsByAlphabet<T: Codable> {
+
+    public enum FetchResultsByAlphabet<T> {
         case success(response: [T])
         case error(error: Error)
     }
@@ -29,19 +30,19 @@ class FirestoreService {
     private func reference(to collection: FirestoreCollectionRef) -> CollectionReference {
         return Firestore.firestore().collection(collection.rawValue)
     }
-    private func referenceSubCollection(to subCollection: FirestoreCollectionRef, withUID UID: String) -> CollectionReference {
-        Firestore.firestore().collection(FirestoreCollectionRef.users.rawValue).document(UID).collection(subCollection.rawValue)
+    private func referenceUserSubCollection(to subCollection: FirestoreCollectionRef, userDocID ID: String) -> CollectionReference {
+        Firestore.firestore().collection("users").document(ID).collection(subCollection.rawValue)
     }
     
-    func createUser(user: User, inColecttion: FirestoreCollectionRef) {
+    func createUser(user: User, inColecttion: FirestoreCollectionRef, completion: @escaping (Error?) -> ()) {
         do {
-            let jsonUser = try user.toJson()
+            let jsonUser = try user.toJson(excluding: ["id"])
             reference(to: .users).addDocument(data: jsonUser)
         } catch  {
-            print(error)
+            completion(error)
         }
     }
-    func addContact(contact: User, withUID UID: String, completion: @escaping (Error?) -> Void) {
+    func addContact<T: Encodable>(user: T, withUserID UID: String, completion: @escaping (Error?) -> ()) {
         reference(to: .users).whereField("uid", isEqualTo: UID).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(error)
@@ -49,8 +50,8 @@ class FirestoreService {
             guard let snapshot = snapshot else { return }
             for document in snapshot.documents {
                 do {
-                    let json = try contact.toJson()
-                    self.referenceSubCollection(to: .contacts, withUID : document.documentID).addDocument(data: json)
+                    let json = try user.toJson(excluding: ["uid","id"])
+                    self.referenceUserSubCollection(to: .contacts, userDocID: document.documentID).addDocument(data: json)
                 } catch  {
                     completion(error)
                 }
@@ -65,7 +66,7 @@ class FirestoreService {
             }
             guard let snapshot = snapshot else { return }
             for document in snapshot.documents {
-                self.referenceSubCollection(to: .contacts, withUID: document.documentID).getDocuments { (snapshot, error) in
+                self.referenceUserSubCollection(to: .contacts, userDocID: document.documentID).getDocuments { (snapshot, error) in
                     
                     if let error = error {
                         completion(FetchResults.error(error: error))
@@ -104,11 +105,11 @@ class FirestoreService {
         }
     }
     
-    func fetchFilteredResults<T: Decodable>(with emailSearchText: String?, completion: @escaping (FetchResults<T>) -> ()) {
+    func fetchFilteredResults(with emailSearchText: String?, completion: @escaping (FetchResults<User>) -> ()) {
         fetchAllUser(returnObjectType: User.self) { (result) in
             switch result {
             case .success(let users):
-                let filteredUsers = (users as! [T]).filter { (user) -> Bool in
+                let filteredUsers = users.filter { (user) -> Bool in
                     guard let textSearch = emailSearchText, textSearch.count > 2 else { return false }
                     return user.email.lowercased().contains(textSearch.lowercased()) || user.fullname.replacingOccurrences(of: " ", with: "").lowercased().contains(textSearch.replacingOccurrences(of: " ", with: "").lowercased())
                 }
@@ -136,20 +137,15 @@ class FirestoreService {
         }
     }
     
-    func deletContacte<T: Encodable>(for object: T, with UserID: String, in subCollection: FirestoreCollectionRef, completion: @escaping (FetchResult<T>) -> ()) {
+    func deleteContact<T: Encodable & Identifier>(for objectDelete: T, with UserID: String, completion: @escaping (Error?) -> ()) {
         reference(to: .users).whereField("uid", isEqualTo: UserID).getDocuments { (snapshot, error) in
             if let error = error {
-                completion(FetchResult.error(error: error))
+                completion(error)
             }
             guard let snapshot = snapshot else { return }
             for document in snapshot.documents {
-                do {
-                    let user = try document.decode(as: User.self)
-                    self.referenceSubCollection(to: subCollection, withUID: document.documentID).document().delete()
-                } catch {
-                    completion(FetchResult.error(error: error))
-                }
-                
+                guard let id = objectDelete.id else { return }
+                self.referenceUserSubCollection(to: .contacts, userDocID: document.documentID).document(id).delete()
             }
         }
     }

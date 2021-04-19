@@ -44,12 +44,14 @@ class AddContactTableViewCell: UITableViewCell {
     }
     @IBAction func addToContactsTapped(_ sender: Any) {
         guard let user = user else { return }
-        FirestoreService.shared.isContainInContacts(for: user, inCurrentUserUID: FirebaseAuth.Auth.auth().currentUser!.uid) { (isContain, error) in
+        guard let UID = FirebaseAuth.Auth.auth().currentUser?.uid else {return}
+        FirestoreService.shared.isContainInContacts(for: user, inCurrentUserUID: UID) { (isContain, error) in
             if !isContain {
                 if error != nil{
                     AlertServices.showAlert(UIApplication.topViewController()!, title: "Error", message: error!.localizedDescription)
                 }
-                FirestoreService.shared.addContact(contact: user, withUID: FirebaseAuth.Auth.auth().currentUser!.uid) { (error) in
+                FirestoreService.shared.addContact(user: user, withUserID: UID) { (error) in
+                    
                     if error != nil {
                         AlertServices.showAlert(UIApplication.topViewController()!, title: "Error", message: error!.localizedDescription)
                     }

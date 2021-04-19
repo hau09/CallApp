@@ -42,7 +42,7 @@ extension UILabel {
         }
         self.text = firstCharacter
         self.backgroundColor = pickColor(alphabet: name[name.startIndex])
-        self.layer.cornerRadius = 24
+        self.layer.cornerRadius = 20
         self.layer.masksToBounds = true
     }
     func pickColor(alphabet: Character) -> UIColor {

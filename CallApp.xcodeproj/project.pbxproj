@@ -18,7 +18,6 @@
 		574CFDBF261B5044000FBD27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 574CFDBE261B5044000FBD27 /* Assets.xcassets */; };
 		574CFDC2261B5044000FBD27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 574CFDC0261B5044000FBD27 /* LaunchScreen.storyboard */; };
 		574DB2D4261EE41400CC6986 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574DB2D3261EE41400CC6986 /* Encodable+Extension.swift */; };
-		574DB2DA261F152200CC6986 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574DB2D9261F152200CC6986 /* ContactViewController.swift */; };
 		574DB2E0261F1AEC00CC6986 /* UIActivityIndicatorView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574DB2DF261F1AEC00CC6986 /* UIActivityIndicatorView+Extension.swift */; };
 		574DB2E5261F3E7A00CC6986 /* DocumentSnapshot+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574DB2E4261F3E7A00CC6986 /* DocumentSnapshot+Extesion.swift */; };
 		574DB2EA261F45A400CC6986 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574DB2E9261F45A400CC6986 /* ContactTableViewCell.swift */; };
@@ -26,6 +25,7 @@
 		57556735261C55AC0003BCD7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57556734261C55AC0003BCD7 /* LoginViewController.swift */; };
 		57556738261C573C0003BCD7 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57556737261C573C0003BCD7 /* UIApplication+Extension.swift */; };
 		5755673C261C59870003BCD7 /* UIAlerController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755673B261C59870003BCD7 /* UIAlerController+Extension.swift */; };
+		576EC4CE262C95E5000EABB7 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576EC4CD262C95E5000EABB7 /* ContactTableViewController.swift */; };
 		57B0AD05261CA832004382AE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B0AD04261CA832004382AE /* SignupViewController.swift */; };
 		57B0AD08261CAE6C004382AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57B0AD07261CAE6C004382AE /* GoogleService-Info.plist */; };
 		57EE9D6726243D0800C61F50 /* AddContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE9D6626243D0800C61F50 /* AddContactTableViewController.swift */; };
@@ -46,7 +46,6 @@
 		574CFDC1261B5044000FBD27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		574CFDC3261B5044000FBD27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		574DB2D3261EE41400CC6986 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
-		574DB2D9261F152200CC6986 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		574DB2DF261F1AEC00CC6986 /* UIActivityIndicatorView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorView+Extension.swift"; sourceTree = "<group>"; };
 		574DB2E4261F3E7A00CC6986 /* DocumentSnapshot+Extesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DocumentSnapshot+Extesion.swift"; sourceTree = "<group>"; };
 		574DB2E9261F45A400CC6986 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		57556734261C55AC0003BCD7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		57556737261C573C0003BCD7 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		5755673B261C59870003BCD7 /* UIAlerController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlerController+Extension.swift"; sourceTree = "<group>"; };
+		576EC4CD262C95E5000EABB7 /* ContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 		57B0AD04261CA832004382AE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		57B0AD07261CAE6C004382AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57EE9D6626243D0800C61F50 /* AddContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactTableViewController.swift; sourceTree = "<group>"; };
@@ -130,10 +130,10 @@
 		574DB2D8261F150200CC6986 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
-				574DB2D9261F152200CC6986 /* ContactViewController.swift */,
 				574DB2E9261F45A400CC6986 /* ContactTableViewCell.swift */,
 				57EE9D6626243D0800C61F50 /* AddContactTableViewController.swift */,
 				57378809262570D400EDEF96 /* AddContactTableViewCell.swift */,
+				576EC4CD262C95E5000EABB7 /* ContactTableViewController.swift */,
 			);
 			path = Contact;
 			sourceTree = "<group>";
@@ -304,7 +304,6 @@
 			files = (
 				5737880A262570D400EDEF96 /* AddContactTableViewCell.swift in Sources */,
 				57B0AD05261CA832004382AE /* SignupViewController.swift in Sources */,
-				574DB2DA261F152200CC6986 /* ContactViewController.swift in Sources */,
 				572E32B5261E0C6800E52973 /* FirestoreService.swift in Sources */,
 				5755673C261C59870003BCD7 /* UIAlerController+Extension.swift in Sources */,
 				57556735261C55AC0003BCD7 /* LoginViewController.swift in Sources */,
@@ -313,6 +312,7 @@
 				574CFDB6261B5044000FBD27 /* AppDelegate.swift in Sources */,
 				57EE9D6726243D0800C61F50 /* AddContactTableViewController.swift in Sources */,
 				574DB2D4261EE41400CC6986 /* Encodable+Extension.swift in Sources */,
+				576EC4CE262C95E5000EABB7 /* ContactTableViewController.swift in Sources */,
 				5701EF52261C699F00BAE62B /* User.swift in Sources */,
 				57556738261C573C0003BCD7 /* UIApplication+Extension.swift in Sources */,
 				574CFDB8261B5044000FBD27 /* SceneDelegate.swift in Sources */,
