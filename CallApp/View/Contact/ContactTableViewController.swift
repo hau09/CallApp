@@ -42,7 +42,9 @@ class ContactTableViewController: UITableViewController {
     }
     // MARK: - Table view data source
 
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        AlertServices.makeCallAlert(self)
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.contacts.isEmpty {
             self.tableView.setEmptyData()

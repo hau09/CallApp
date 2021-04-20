@@ -10,7 +10,16 @@ import  FirebaseAuth
 
 class AddContactTableViewController: UITableViewController {
     let searchController = UISearchController()
-    private lazy var filteredContacts = [User]()
+    private lazy var filteredContacts = [User]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    private lazy var recentAdded = [User]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         searchController.delegate = self
@@ -28,6 +37,11 @@ class AddContactTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if self.filteredContacts.isEmpty {
+            self.tableView.setEmptyData()
+        }else{
+            self.tableView.backgroundView = nil
+        }
         return filteredContacts.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,13 +54,17 @@ class AddContactTableViewController: UITableViewController {
 extension AddContactTableViewController: UISearchResultsUpdating, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let textSearch = searchController.searchBar.text else { return }
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.startIndicatorActivity(viewController: self)
         FirestoreService.shared.fetchFilteredResults(with: textSearch) { (result) in
             switch result {
                 case .success(let users):
                     self.filteredContacts = users
-                    self.tableView.reloadData()
+                    activityIndicator.stopAnimating()
                 case .error(let error):
                     AlertServices.showAlert(self, title: "Error", message: error.localizedDescription)
+                    activityIndicator.stopAnimating()
+                    
             }
         }
     }
