@@ -45,7 +45,7 @@ class SignupViewController: UIViewController {
             return
         }
         
-        let activityIndicatorView = UIActivityIndicatorView(style: .medium)
+        let activityIndicatorView = UIActivityIndicatorView(style: .gray)
         self.view.addSubview(activityIndicatorView)
         activityIndicatorView.frame = self.view.frame
         activityIndicatorView.center = self.view.center

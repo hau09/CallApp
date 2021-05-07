@@ -13,7 +13,6 @@
 		572E32BC261E1CB800E52973 /* FirestoreCollectionRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572E32BB261E1CB800E52973 /* FirestoreCollectionRef.swift */; };
 		5737880A262570D400EDEF96 /* AddContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57378809262570D400EDEF96 /* AddContactTableViewCell.swift */; };
 		574CFDB6261B5044000FBD27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574CFDB5261B5044000FBD27 /* AppDelegate.swift */; };
-		574CFDB8261B5044000FBD27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574CFDB7261B5044000FBD27 /* SceneDelegate.swift */; };
 		574CFDBD261B5044000FBD27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 574CFDBB261B5044000FBD27 /* Main.storyboard */; };
 		574CFDBF261B5044000FBD27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 574CFDBE261B5044000FBD27 /* Assets.xcassets */; };
 		574CFDC2261B5044000FBD27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 574CFDC0261B5044000FBD27 /* LaunchScreen.storyboard */; };
@@ -25,10 +24,20 @@
 		57556735261C55AC0003BCD7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57556734261C55AC0003BCD7 /* LoginViewController.swift */; };
 		57556738261C573C0003BCD7 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57556737261C573C0003BCD7 /* UIApplication+Extension.swift */; };
 		5755673C261C59870003BCD7 /* UIAlerController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755673B261C59870003BCD7 /* UIAlerController+Extension.swift */; };
+		5760E1BC2632B0F400D15FA1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5760E1BB2632B0F400D15FA1 /* ProfileViewController.swift */; };
+		576353D12642893600B3B2A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576353D02642893500B3B2A4 /* SceneDelegate.swift */; };
 		576EC4CE262C95E5000EABB7 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576EC4CD262C95E5000EABB7 /* ContactTableViewController.swift */; };
+		57A469FA2631E91400AA4118 /* VideoChat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57A469F92631E91400AA4118 /* VideoChat.storyboard */; };
 		57B0AD05261CA832004382AE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B0AD04261CA832004382AE /* SignupViewController.swift */; };
 		57B0AD08261CAE6C004382AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57B0AD07261CAE6C004382AE /* GoogleService-Info.plist */; };
+		57D4234E2630182B002CE597 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D4234D2630182B002CE597 /* TabBarViewController.swift */; };
+		57ECA7D42643BD5800D68F0C /* KeyCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECA7D32643BD5800D68F0C /* KeyCenter.swift */; };
 		57EE9D6726243D0800C61F50 /* AddContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE9D6626243D0800C61F50 /* AddContactTableViewController.swift */; };
+		57F573332638158600486554 /* ProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F5732F2638158500486554 /* ProviderDelegate.swift */; };
+		57F573342638158600486554 /* CallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F573302638158500486554 /* CallManager.swift */; };
+		57F573352638158600486554 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F573312638158500486554 /* Audio.swift */; };
+		57F573362638158600486554 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F573322638158600486554 /* Call.swift */; };
+		57F5733A2638288700486554 /* MakeCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F573392638288700486554 /* MakeCallViewController.swift */; };
 		BFEF30F34000931A1C919C30 /* Pods_CallApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB79269496CA214318429CB /* Pods_CallApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +49,6 @@
 		57378809262570D400EDEF96 /* AddContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactTableViewCell.swift; sourceTree = "<group>"; };
 		574CFDB2261B5044000FBD27 /* CallApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CallApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		574CFDB5261B5044000FBD27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		574CFDB7261B5044000FBD27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		574CFDBC261B5044000FBD27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		574CFDBE261B5044000FBD27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		574CFDC1261B5044000FBD27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,10 +61,20 @@
 		57556734261C55AC0003BCD7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		57556737261C573C0003BCD7 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		5755673B261C59870003BCD7 /* UIAlerController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlerController+Extension.swift"; sourceTree = "<group>"; };
+		5760E1BB2632B0F400D15FA1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		576353D02642893500B3B2A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		576EC4CD262C95E5000EABB7 /* ContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
+		57A469F92631E91400AA4118 /* VideoChat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoChat.storyboard; sourceTree = "<group>"; };
 		57B0AD04261CA832004382AE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		57B0AD07261CAE6C004382AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		57D4234D2630182B002CE597 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		57ECA7D32643BD5800D68F0C /* KeyCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCenter.swift; sourceTree = "<group>"; };
 		57EE9D6626243D0800C61F50 /* AddContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactTableViewController.swift; sourceTree = "<group>"; };
+		57F5732F2638158500486554 /* ProviderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderDelegate.swift; sourceTree = "<group>"; };
+		57F573302638158500486554 /* CallManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallManager.swift; sourceTree = "<group>"; };
+		57F573312638158500486554 /* Audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
+		57F573322638158600486554 /* Call.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
+		57F573392638288700486554 /* MakeCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeCallViewController.swift; sourceTree = "<group>"; };
 		7BEB8D615BD36CD4599E4D90 /* Pods-CallApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CallApp.debug.xcconfig"; path = "Target Support Files/Pods-CallApp/Pods-CallApp.debug.xcconfig"; sourceTree = "<group>"; };
 		92F8813FAD8A604BCB9588CC /* Pods-CallApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CallApp.release.xcconfig"; path = "Target Support Files/Pods-CallApp/Pods-CallApp.release.xcconfig"; sourceTree = "<group>"; };
 		9CB79269496CA214318429CB /* Pods_CallApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CallApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,8 +97,17 @@
 			children = (
 				5701EF51261C699F00BAE62B /* User.swift */,
 				572E32BB261E1CB800E52973 /* FirestoreCollectionRef.swift */,
+				57ECA7D32643BD5800D68F0C /* KeyCenter.swift */,
 			);
 			path = Modal;
+			sourceTree = "<group>";
+		};
+		572CF58C2633F6ED00D882C7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5760E1BB2632B0F400D15FA1 /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		572E32B3261E0C0000E52973 /* Manager */ = {
@@ -112,17 +139,19 @@
 		574CFDB4261B5044000FBD27 /* CallApp */ = {
 			isa = PBXGroup;
 			children = (
+				57F5732E2638156C00486554 /* CallKit */,
 				57556728261C4BAE0003BCD7 /* Extension */,
 				572E32B3261E0C0000E52973 /* Manager */,
 				5701EF50261C697800BAE62B /* Modal */,
-				5755672F261C55520003BCD7 /* View */,
+				5755672F261C55520003BCD7 /* Controller */,
 				574CFDB5261B5044000FBD27 /* AppDelegate.swift */,
-				574CFDB7261B5044000FBD27 /* SceneDelegate.swift */,
+				576353D02642893500B3B2A4 /* SceneDelegate.swift */,
 				574CFDBB261B5044000FBD27 /* Main.storyboard */,
 				574CFDBE261B5044000FBD27 /* Assets.xcassets */,
 				574CFDC0261B5044000FBD27 /* LaunchScreen.storyboard */,
 				57B0AD07261CAE6C004382AE /* GoogleService-Info.plist */,
 				574CFDC3261B5044000FBD27 /* Info.plist */,
+				57A469F92631E91400AA4118 /* VideoChat.storyboard */,
 			);
 			path = CallApp;
 			sourceTree = "<group>";
@@ -152,13 +181,16 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		5755672F261C55520003BCD7 /* View */ = {
+		5755672F261C55520003BCD7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				57F573382638286D00486554 /* Call */,
+				572CF58C2633F6ED00D882C7 /* Profile */,
 				574DB2D8261F150200CC6986 /* Contact */,
 				57B0ACFE261CA759004382AE /* Login */,
+				57D4234D2630182B002CE597 /* TabBarViewController.swift */,
 			);
-			path = View;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		57B0ACFE261CA759004382AE /* Login */ = {
@@ -168,6 +200,25 @@
 				57B0AD04261CA832004382AE /* SignupViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		57F5732E2638156C00486554 /* CallKit */ = {
+			isa = PBXGroup;
+			children = (
+				57F573312638158500486554 /* Audio.swift */,
+				57F573322638158600486554 /* Call.swift */,
+				57F573302638158500486554 /* CallManager.swift */,
+				57F5732F2638158500486554 /* ProviderDelegate.swift */,
+			);
+			path = CallKit;
+			sourceTree = "<group>";
+		};
+		57F573382638286D00486554 /* Call */ = {
+			isa = PBXGroup;
+			children = (
+				57F573392638288700486554 /* MakeCallViewController.swift */,
+			);
+			path = Call;
 			sourceTree = "<group>";
 		};
 		76C8AEAE5762729709D00C0A /* Frameworks */ = {
@@ -247,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				574CFDC2261B5044000FBD27 /* LaunchScreen.storyboard in Resources */,
+				57A469FA2631E91400AA4118 /* VideoChat.storyboard in Resources */,
 				574CFDBF261B5044000FBD27 /* Assets.xcassets in Resources */,
 				574CFDBD261B5044000FBD27 /* Main.storyboard in Resources */,
 				57B0AD08261CAE6C004382AE /* GoogleService-Info.plist in Resources */,
@@ -303,23 +355,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				5737880A262570D400EDEF96 /* AddContactTableViewCell.swift in Sources */,
+				57F573362638158600486554 /* Call.swift in Sources */,
 				57B0AD05261CA832004382AE /* SignupViewController.swift in Sources */,
 				572E32B5261E0C6800E52973 /* FirestoreService.swift in Sources */,
 				5755673C261C59870003BCD7 /* UIAlerController+Extension.swift in Sources */,
 				57556735261C55AC0003BCD7 /* LoginViewController.swift in Sources */,
+				5760E1BC2632B0F400D15FA1 /* ProfileViewController.swift in Sources */,
 				5755672A261C4BD20003BCD7 /* TextFieldDesignable.swift in Sources */,
 				574DB2E5261F3E7A00CC6986 /* DocumentSnapshot+Extesion.swift in Sources */,
 				574CFDB6261B5044000FBD27 /* AppDelegate.swift in Sources */,
+				57F573332638158600486554 /* ProviderDelegate.swift in Sources */,
 				57EE9D6726243D0800C61F50 /* AddContactTableViewController.swift in Sources */,
 				574DB2D4261EE41400CC6986 /* Encodable+Extension.swift in Sources */,
 				576EC4CE262C95E5000EABB7 /* ContactTableViewController.swift in Sources */,
+				57F573342638158600486554 /* CallManager.swift in Sources */,
 				5701EF52261C699F00BAE62B /* User.swift in Sources */,
 				57556738261C573C0003BCD7 /* UIApplication+Extension.swift in Sources */,
-				574CFDB8261B5044000FBD27 /* SceneDelegate.swift in Sources */,
+				57D4234E2630182B002CE597 /* TabBarViewController.swift in Sources */,
 				574DB2E0261F1AEC00CC6986 /* UIActivityIndicatorView+Extension.swift in Sources */,
 				5701EF4E261C658300BAE62B /* AlertServices.swift in Sources */,
+				576353D12642893600B3B2A4 /* SceneDelegate.swift in Sources */,
+				57F573352638158600486554 /* Audio.swift in Sources */,
 				572E32BC261E1CB800E52973 /* FirestoreCollectionRef.swift in Sources */,
 				574DB2EA261F45A400CC6986 /* ContactTableViewCell.swift in Sources */,
+				57ECA7D42643BD5800D68F0C /* KeyCenter.swift in Sources */,
+				57F5733A2638288700486554 /* MakeCallViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -451,7 +511,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -468,6 +528,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57V3ZBG8JW;
 				INFOPLIST_FILE = CallApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -487,6 +548,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57V3ZBG8JW;
 				INFOPLIST_FILE = CallApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

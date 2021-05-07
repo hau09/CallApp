@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 
 class AddContactTableViewCell: UITableViewCell {
+    private let UID = FirebaseAuth.Auth.auth().currentUser?.uid
     @IBOutlet weak var fullnameLB: UILabel!
     @IBOutlet weak var emailLB: UILabel!
     @IBOutlet weak var addToContactsTapped: UIButton!
@@ -28,7 +29,7 @@ class AddContactTableViewCell: UITableViewCell {
             fullnameLB.text = user.fullname
             emailLB.text = user.email
             DispatchQueue.global().async {
-                FirestoreService.shared.isContainInContacts(for: self.user, inCurrentUserUID: FirebaseAuth.Auth.auth().currentUser!.uid) { (isContain, error) in
+                FirestoreService.shared.isContainInContacts(for: self.user, inCurrentUserUID: self.UID!) { (isContain, error) in
                     if error != nil {
                         AlertServices.showAlert(UIApplication.topViewController()!, title: "Error", message: error!.localizedDescription)
                     }
@@ -44,13 +45,12 @@ class AddContactTableViewCell: UITableViewCell {
     }
     @IBAction func addToContactsTapped(_ sender: Any) {
         guard let user = user else { return }
-        guard let UID = FirebaseAuth.Auth.auth().currentUser?.uid else {return}
-        FirestoreService.shared.isContainInContacts(for: user, inCurrentUserUID: UID) { (isContain, error) in
+        FirestoreService.shared.isContainInContacts(for: user, inCurrentUserUID: UID!) { (isContain, error) in
             if !isContain {
                 if error != nil{
                     AlertServices.showAlert(UIApplication.topViewController()!, title: "Error", message: error!.localizedDescription)
                 }
-                FirestoreService.shared.addContact(user: user, withUserID: UID) { (error) in
+                FirestoreService.shared.addContact(user: user, withUserID: self.UID!) { (error) in
                     
                     if error != nil {
                         AlertServices.showAlert(UIApplication.topViewController()!, title: "Error", message: error!.localizedDescription)

@@ -7,21 +7,33 @@
 
 import UIKit
 import FirebaseAuth
+protocol UserDelegate {
+    var callee: User? {set get}
+    var caller: (email: String, uid: String)? {set get}
+}
 
-class ContactTableViewController: UITableViewController {
-    let activityIndicator = UIActivityIndicatorView(style: .medium)
-    private var contacts = [User]() {
+class ContactTableViewController: UITableViewController, UserDelegate {
+    
+    var caller: (email: String, uid: String)?
+    var callee: User?
+    private let currentUser = FirebaseAuth.Auth.auth().currentUser
+    let activityIndicator = UIActivityIndicatorView(style: .gray)
+    private lazy var contacts = [User]() {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
+        
     }
-    fileprivate let UID = FirebaseAuth.Auth.auth().currentUser!.uid
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let email = currentUser?.email else { return }
+        guard let uid = currentUser?.uid else { return }
+        caller = (email: email, uid: uid)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         activityIndicator.startIndicatorActivity(viewController: self)
         fetchContacts(completion: { (results) in
@@ -31,7 +43,7 @@ class ContactTableViewController: UITableViewController {
     }
     
     func fetchContacts(completion: @escaping ([User]) -> ()) {
-        FirestoreService.shared.fetchContactsFromCurrentUser(withUID: UID, returning: User.self) { (result) in
+        FirestoreService.shared.fetchContactsFromCurrentUser(withUID: caller!.uid, returning: User.self) { (result) in
             switch result {
             case .success(let contacts):
                 completion(contacts)
@@ -43,7 +55,24 @@ class ContactTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        AlertServices.makeCallAlert(self)
+        tableView.deselectRow(at: indexPath, animated: true)
+        let voiceCallButton = UIButton()
+        let videoCallButton = UIButton()
+        voiceCallButton.addTarget(self, action: #selector(voiceCallAtion), for: .touchUpInside)
+        videoCallButton.addTarget(self, action: #selector(videoCallAtion), for: .touchUpInside)
+        self.callee = contacts[indexPath.row]
+        AlertServices.makeCallAlert(self, voiceCallButton: voiceCallButton, videoCallButton: videoCallButton, user: callee!)
+    }
+    @objc func voiceCallAtion(){
+        print("this is voice")
+    }
+    @objc func videoCallAtion(){
+        let vc = UIStoryboard(name: "VideoChat", bundle: nil).instantiateViewController(withIdentifier: "MakeCallVC") as? MakeCallViewController
+        vc?.delegate = self
+        DispatchQueue.main.async {
+            self.presentedViewController?.dismiss(animated: true, completion: nil)
+            self.present(vc!, animated: true, completion: nil)
+        }
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.contacts.isEmpty {
@@ -61,7 +90,7 @@ class ContactTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            FirestoreService.shared.deleteContact(for: contacts[indexPath.row], with: UID) { (error) in
+            FirestoreService.shared.deleteContact(for: contacts[indexPath.row], with: caller!.uid) { (error) in
                 if let error = error {
                     AlertServices.showAlert(self, title: "Error", message: error.localizedDescription)
                 }

@@ -10,5 +10,5 @@ target 'CallApp' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Firestore'
 	pod 'Firebase/Database'
-
+	pod 'AgoraRtcEngine_iOS'
 end

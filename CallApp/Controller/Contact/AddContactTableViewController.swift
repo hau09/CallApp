@@ -54,7 +54,7 @@ class AddContactTableViewController: UITableViewController {
 extension AddContactTableViewController: UISearchResultsUpdating, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let textSearch = searchController.searchBar.text else { return }
-        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
         activityIndicator.startIndicatorActivity(viewController: self)
         FirestoreService.shared.fetchFilteredResults(with: textSearch) { (result) in
             switch result {

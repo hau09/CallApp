@@ -50,7 +50,7 @@ class FirestoreService {
             guard let snapshot = snapshot else { return }
             for document in snapshot.documents {
                 do {
-                    let json = try user.toJson(excluding: ["uid","id"])
+                    let json = try user.toJson(excluding: ["id"])
                     self.referenceUserSubCollection(to: .contacts, userDocID: document.documentID).addDocument(data: json)
                 } catch  {
                     completion(error)

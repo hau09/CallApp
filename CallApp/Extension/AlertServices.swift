@@ -18,29 +18,33 @@ class AlertServices {
         }))
         viewController.present(alert, animated: true, completion: nil)
     }
-    static func makeCallAlert(_ viewController: UIViewController) {
-        let voiceCallButton = UIButton()
+    static func makeCallAlert(_ viewController: UIViewController, voiceCallButton: UIButton, videoCallButton: UIButton, user: User) {
         voiceCallButton.setTitle("Voice", for: .normal)
-        voiceCallButton.backgroundColor = .green
+        voiceCallButton.setTitleColor(.blue, for: .normal)
+        //voiceCallButton.backgroundColor = .green
+        voiceCallButton.layer.borderWidth = 1
+        voiceCallButton.layer.borderColor =  UIColor.blue.cgColor
         voiceCallButton.layer.cornerRadius = 15
         voiceCallButton.translatesAutoresizingMaskIntoConstraints = false
-
-        let videoCallButton = UIButton()
+   
         videoCallButton.setTitle("Video", for: .normal)
-        videoCallButton.backgroundColor = .blue
+        videoCallButton.setTitleColor(.green, for: .normal)
+        //videoCallButton.backgroundColor = .blue
+        videoCallButton.layer.borderWidth = 1
+        videoCallButton.layer.borderColor = UIColor.green.cgColor
         videoCallButton.layer.cornerRadius = 15
         videoCallButton.translatesAutoresizingMaskIntoConstraints = false
 
         let fullnameLB = UILabel()
         fullnameLB.textAlignment = .center
         fullnameLB.font = .systemFont(ofSize: 18)
-        fullnameLB.text = "Full name"
+        fullnameLB.text = user.fullname
         fullnameLB.translatesAutoresizingMaskIntoConstraints = false
 
         let emailLB = UILabel()
         emailLB.textAlignment = .center
         emailLB.font = .systemFont(ofSize: 16)
-        emailLB.text = "Email"
+        emailLB.text = user.email
         emailLB.translatesAutoresizingMaskIntoConstraints = false
         
         let labelStackview = UIStackView()
@@ -56,6 +60,7 @@ class AlertServices {
         buttonStackview.alignment = .fill
         buttonStackview.distribution = .fillEqually
         buttonStackview.spacing = 8
+        buttonStackview.translatesAutoresizingMaskIntoConstraints = false
 
         buttonStackview.addArrangedSubview(voiceCallButton)
         buttonStackview.addArrangedSubview(videoCallButton)
@@ -64,14 +69,14 @@ class AlertServices {
         let makeCallStackView = UIStackView()
         makeCallStackView.axis = .vertical
         makeCallStackView.alignment = .fill
-        makeCallStackView.distribution = .fill
+        makeCallStackView.distribution = .fillEqually
         makeCallStackView.spacing = 30
 
         makeCallStackView.addArrangedSubview(labelStackview)
         makeCallStackView.addArrangedSubview(buttonStackview)
         makeCallStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         alertController.view.addSubview(makeCallStackView)
         makeCallStackView.topAnchor.constraint(equalTo: alertController.view.topAnchor, constant: 10).isActive = true
         makeCallStackView.rightAnchor.constraint(equalTo: alertController.view.rightAnchor, constant: -10).isActive = true
@@ -87,6 +92,4 @@ class AlertServices {
         }))
         viewController.present(alertController, animated: true, completion: nil)
     }
-    
-    
 }
